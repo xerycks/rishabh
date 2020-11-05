@@ -1,0 +1,33 @@
+* {
+    color: black;
+    background-color: rgb(241, 190, 190);
+    scroll-behavior: smooth;
+}
+
+hr {
+    border-style: dotted none none none;
+    border-width: 5px;
+    color: grey;
+}
+
+h1 {
+    color: brown;
+}
+
+h3 {
+    color: brown;
+}
+
+.rishabh {
+    height: 200px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.skills {
+    border-spacing: 5px;
+}
+
+.intro {
+    border-spacing: 20px;
+}
