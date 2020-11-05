@@ -1,0 +1,93 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    position: relative;
+    direction: ltr;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+    background-color: #171a19;
+    color: #ddd;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+::selection {
+    background: transparent;
+    color: inherit;
+}
+
+::-moz-selection {
+    background: transparent;
+    color: inherit;
+}
+
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 500px;
+    cursor: move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.wrapper:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.wrapper .container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#yahia {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+.wrapper.secret {
+    min-width: 390px;
+}
+
+.wrapper.opinion {
+    min-width: 390px;
+}
+
+::-webkit-scrollbar {
+    visibility: hidden;
+}
