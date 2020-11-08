@@ -5550,13 +5550,7 @@ function notFoundCallback() {
                 })();
         })();
     }),
-    $(document).ready(function () {
-        $(".field")
-            .find("input, textarea")
-            .keyup(function () {
-                inputTest(this);
-            });
-    }),
+    
     $(document).ready(function () {
         $(".list")
             .find("li.listItem a, li.archived a")
@@ -5755,64 +5749,6 @@ var Stars = {
                 (n.src = t);
         },
     },
-    Submit = {
-        data: function (e, t) {
-            var n = {};
-            for (i = 0; i < t.length; i++) {
-                var o = $(t[i]),
-                    r = o.attr("name"),
-                    a = o.val().replace(/(?:\r\n|\r|\n)/g, "<br>");
-                n[r] = a;
-            }
-            return n;
-        },
-        push: function (e) {
-            var t = $(".template[data-template=" + e + "]"),
-                n = t.find(".field input, .field textarea");
-            Submit.view("[data-status=waiting]", t),
-                $.ajax({
-                    type: "POST",
-                    url: "includes/php/" + e + ".php",
-                    data: { dd: JSON.stringify(Submit.data(t, n)) },
-                    dataType: "json",
-                    error: function (i, o, r) {
-                        Submit.callback("error", e, t, n);
-                    },
-                    success: function (i) {
-                        Submit.callback("success", e, t, n);
-                    },
-                });
-        },
-        callback: function (e, t, n, i) {
-            setTimeout(function () {
-                "success" == e
-                    ? (n.find(".form .status").removeClass("current"),
-                      i.closest(".field").fadeOut(700),
-                      i.closest(".form").find(".submit").fadeOut(700),
-                      Identity.stop(),
-                      "secret" == t && (secretAvailability = !1),
-                      setTimeout(function () {
-                          i.closest(".form").find(".submit").remove(), i.closest(".field").remove(), n.find(".form .status[data-status=success]").addClass("current");
-                      }, 750))
-                    : (Submit.view("[data-status=error]", n),
-                      setTimeout(function () {
-                          Submit.view(":not([data-status])", n);
-                      }, 6e3));
-            }, 4e3);
-        },
-        view: function (e, t) {
-            t.find(".form .status").removeClass("current"), t.find(".form .status" + e).addClass("current");
-        },
-        listen: function (e) {
-            $(e).on("click", function (e) {
-                if ($(this).closest(".form").hasClass("validated")) {
-                    var t = $(this).attr("data-form");
-                    Submit.push(t);
-                }
-                e.preventDefault();
-            });
-        },
-    },
     Router = {
         wrapper: [],
         location: null,
@@ -5893,7 +5829,6 @@ $(document).ready(function () {
         $("body").jpreLoader({ showSplash: !1, showPercentage: !1, loaderVPos: 0, splashVPos: 0 }, function () {
             Router.route(void 0, function () {
                 Router.listen(),
-                    Submit.listen(".submit"),
                     md.mobile() & Stars.init(),
                     setTimeout(function () {
                         $("#signature").removeClass("loading");

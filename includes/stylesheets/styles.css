@@ -2279,9 +2279,14 @@ ol.blocks>li {
 }
 
 @media(max-width:669px) {
-    .template .list>li.listItem,
     .template .list>li.archived {
         padding-left: 0px
+    }
+    .template .list>li.listItem {
+        padding-left: 42px
+    }
+    .template .list>li.listItem span:nth-child(2) {
+        margin-left: 10px;
     }
     .template .list>li.listItem svg,
     .template .list>li.archived svg {
