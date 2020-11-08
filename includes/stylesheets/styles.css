@@ -2243,6 +2243,10 @@ ol.blocks>li {
     .template .list>li span:nth-child(1) {
         width: auto
     }
+    
+    .template .list>li span:nth-child(-1) {
+        margin-left: 20px;
+    }
     .template .list>li span:nth-child(1):after {
         content: ' '
     }
@@ -2277,7 +2281,7 @@ ol.blocks>li {
 @media(max-width:669px) {
     .template .list>li.listItem,
     .template .list>li.archived {
-        padding-left: 42px
+        padding-left: 0px
     }
     .template .list>li.listItem svg,
     .template .list>li.archived svg {
