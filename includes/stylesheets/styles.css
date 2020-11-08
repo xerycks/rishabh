@@ -3336,6 +3336,7 @@ textarea {
     position: absolute;
     top: 49px;
     left: 0;
+    padding: inherit 2%;
     -webkit-transition: all .7s cubic-bezier(0.19, 1, 0.22, 1) 0s;
     transition: all .7s cubic-bezier(0.19, 1, 0.22, 1) 0s
 }
@@ -4774,6 +4775,10 @@ form .small .status>*:nth-child(2),
     100% {
         right: 0
     }
+}
+
+.template[data-template=home] h1{
+    transform: scale(1.13) translateX(5.8%);
 }
 
 .template[data-template=home] .p>* {
