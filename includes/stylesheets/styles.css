@@ -1799,7 +1799,7 @@ body {
     font-size: 14px;
     font-weight: 400;
     line-height: 28px;
-    background-color: #000017;
+    background-color: #070802;
     color: #ddd;
     -webkit-font-smoothing: antialiased
 }
@@ -1939,7 +1939,7 @@ p,
 
 small,
 .small {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 21px;
     color: #666
 }
@@ -3950,33 +3950,65 @@ textarea {
 }
 
 .balls #identity>div:nth-child(1) {
-    height: 100px;
-    width: 100px;
+    height: 168px;
+    width: 168px;
     top: -157.5px;
-    left: -180px
+    left: -231px
 }
 
 .balls #identity>div:nth-child(2) {
-    height: 90px;
-    width: 90px;
-    top: -30px;
-    left: -155px
+    height: 105px;
+    width: 105px;
+    top: 31.5px;
+    left: -175px
 }
 
 .balls #identity>div:nth-child(3) {
-    height: 110px;
-    width: 110px;
-    top: -148.5px;
-    left: -40px
+    height: 126px;
+    width: 126px;
+    top: -178.5px;
+    left: -42px
 }
 
 .balls #identity>div:nth-child(4) {
-    height: 140px;
-    width: 140px;
+    height: 210px;
+    width: 210px;
     top: -31.5px;
-    left: -4px
+    left: 21px
 }
 
+@media screen and (max-width: 700px) {
+    
+    .balls #identity>div:nth-child(1) {
+        height: 100px;
+        width: 100px;
+        top: -157.5px;
+        left: -180px
+    }
+    
+    .balls #identity>div:nth-child(2) {
+        height: 90px;
+        width: 90px;
+        top: -30px;
+        left: -155px
+    }
+    
+    .balls #identity>div:nth-child(3) {
+        height: 110px;
+        width: 110px;
+        top: -148.5px;
+        left: -40px
+    }
+    
+    .balls #identity>div:nth-child(4) {
+        height: 140px;
+        width: 140px;
+        top: -31.5px;
+        left: -4px
+    }
+    
+    
+}
 .balls #identity>div:hover {
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);
@@ -5015,6 +5047,13 @@ form .small .status>*:nth-child(2),
     animation-delay: .287483859316113s
 }
 
+.template[data-template=home] main .links>*:nth-child(4) {
+    -webkit-animation-duration: 1.0007483859316113s;
+    animation-duration: 1.0007483859316113s;
+    -webkit-animation-delay: .328483859316113s;
+    animation-delay: .328483859316113s
+}
+
 @-moz-keyframes lineNum8 {
     0% {
         -ms-filter: "alpha(opacity=0)";
@@ -5121,6 +5160,13 @@ form .small .status>*:nth-child(2),
     animation-duration: .987483859316113s;
     -webkit-animation-delay: .287483859316113s;
     animation-delay: .287483859316113s
+}
+
+.template[data-template=home]:not(.current) main .links>*:nth-child(4) {
+    -webkit-animation-duration: 1.0007483859316113s;
+    animation-duration: 1.0007483859316113s;
+    -webkit-animation-delay: .328483859316113s;
+    animation-delay: .328483859316113s
 }
 
 @-moz-keyframes lineNum9 {
