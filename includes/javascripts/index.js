@@ -5696,16 +5696,16 @@ var Stars = {
                 (this.radius = o),
                 (this.minRadius = this.radius),
                 (this.draw = function () {
-                    Stars.context.beginPath(), Stars.context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, !1), (Stars.context.fillStyle = r), Stars.context.fill();
+                    Stars.context.beginPath(), Stars.context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, !1), (Stars.context.fillStyle = r), Stars.context.fill()
                 }),
                 (this.update = function () {
                     (this.x + this.radius > Stars.canvas.width || this.x - this.radius < 0) && (this.dx = -this.dx),
-                        (this.y + this.radius > Stars.canvas.height || this.y - this.radius < 0) && (this.dy = -this.dy),
-                        (this.x += this.dx),
-                        (this.y += this.dy),
+                        (this.y + this.radius > Stars.canvas.height * 2 || this.y - this.radius < 0) && (this.dy = -this.dy),
+                        (this.x += this.dx / 3),
+                        (this.y += this.dy / 3),
                         Stars.mouse.x - this.x < Stars.mouseDistance && Stars.mouse.x - this.x > -Stars.mouseDistance && Stars.mouse.y - this.y < Stars.mouseDistance && Stars.mouse.y - this.y > -Stars.mouseDistance
-                            ? this.radius < Stars.maxRadius && (this.radius += 1)
-                            : this.radius > this.minRadius && (this.radius -= 1),
+                            ? this.radius < Stars.maxRadius && (this.radius += 1.3)
+                            : this.radius > this.minRadius && (this.radius -= 1.3),
                         this.draw();
                 });
         },
