@@ -5734,78 +5734,11 @@ var Stars = {
             (Stars.canvas.width = window.innerWidth), (Stars.canvas.height = window.innerHeight);
         },
     },
-    renderer,
-    scene,
-    camera,
-    ww,
-    wh,
-    particles;
-(ww = window.innerWidth), (wh = window.innerHeight);
-var centerVector = new THREE.Vector3(0, 0, 0),
-    previousTime = 0;
-(speed = 10), (isMouseDown = !1);
-var getImageData = function (e) {
-        var t = document.createElement("canvas");
-        (t.width = e.width), (t.height = e.height);
-        var n = t.getContext("2d");
-        return n.clearRect(0, 0, t.width, t.height), n.drawImage(e, 0, 0), n.getImageData(0, 0, e.width, e.height);
-    },
-    drawTheMap = function () {
-        particles && scene.remove(particles), e && e.dispose(), t && t.dispose();
-        var e = new THREE.Geometry(),
-            t = new THREE.PointCloudMaterial();
-        (t.vertexColors = !0), (t.transparent = !0);
-        for (var n = 0, i = imagedata.height; n < i; n += 1)
-            for (var o = 0, r = imagedata.width; o < r; o += 1)
-                if (imagedata.data[4 * o + 4 * n * imagedata.width] > 0) {
-                    var a = new THREE.Vector3();
-                    (a.x = o - imagedata.width / 2 + 280), (a.y = -n + imagedata.height / 2), (a.z = 500 * -Math.random()), (a.speed = Math.random() / speed + 0.015);
-                    var s = getPixel(imagedata, o, n),
-                        l = "rgb(" + s.r + ", " + s.g + ", " + s.b + ")";
-                    e.colors.push(new THREE.Color(l)), e.vertices.push(a);
-                }
-        (particles = new THREE.Points(e, t)), scene.add(particles), requestAnimationFrame(render);
-    },
-    init = function (e) {
-        (renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("yahia"), antialias: !0, alpha: !0 })),
-            renderer.setSize(ww, wh),
-            (scene = new THREE.Scene()),
-            (camera = new THREE.OrthographicCamera(ww / -2, ww / 2, wh / 2, wh / -2, 1, 1e3)),
-            camera.position.set(0, -20, 4),
-            camera.lookAt(centerVector),
-            scene.add(camera),
-            (camera.zoom = 1),
-            camera.updateProjectionMatrix(),
-            (imagedata = getImageData(e)),
-            drawTheMap(),
-            window.addEventListener("mousemove", onMousemove, !1),
-            window.addEventListener("mousedown", onMousedown, !1),
-            window.addEventListener("mouseup", onMouseup, !1),
-            window.addEventListener("resize", onResize, !1);
-    },
-    onResize = function () {
-        (ww = window.innerWidth), (wh = window.innerHeight), renderer.setSize(ww, wh), (camera.left = ww / -2), (camera.right = ww / 2), (camera.top = wh / 2), (camera.bottom = wh / -2), camera.updateProjectionMatrix();
-    },
-    onMouseup = function () {
-        isMouseDown = !1;
-    },
-    onMousedown = function (e) {
-        (isMouseDown = !0), (lastMousePos = { x: e.clientX, y: e.clientY });
-    },
-    onMousemove = function (e) {
-        isMouseDown && ((camera.position.x += (e.clientX - lastMousePos.x) / 100), (camera.position.y -= (e.clientY - lastMousePos.y) / 100), camera.lookAt(centerVector), (lastMousePos = { x: e.clientX, y: e.clientY }));
-    },
-    render = function (e) {
-        requestAnimationFrame(render),
-            (particles.geometry.verticesNeedUpdate = !0),
-            isMouseDown || ((camera.position.x += 0.06 * (0 - camera.position.x)), (camera.position.y += 0.06 * (0 - camera.position.y)), camera.lookAt(centerVector)),
-            renderer.render(scene, camera);
-    },
     Yahia = {
         load: function (e) {
             var t;
             "home" == e
-                ? (t = "includes/images/download.pn")
+                ? (t = "includes/images/download.png")
                 : "secret" == e
                 ? (t = "includes/images/yahiarefaiea-secret.png")
                 : "bucket" == e
